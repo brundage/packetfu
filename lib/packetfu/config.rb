@@ -24,13 +24,13 @@ module PacketFu
   #   obj.config #=> {:iface=>"eth0", :baz=>"bat", :pcapfile=>"/tmp/out.pcap", :foo=>"bar"}
   class Config
     attr_accessor :eth_saddr,	# The discovered eth_saddr
-      :eth_daddr,							# The discovered eth_daddr (ie, the gateway)
-      :eth_src,								# The discovered eth_src in binary form.
-      :eth_dst,								# The discovered eth_dst (gateway) in binary form.
-      :ip_saddr,							# The discovered ip_saddr
-      :ip_src,								# The discovered ip_src in binary form.
-      :iface,									# The declared interface.
-      :pcapfile								# A declared default file to write to.
+                  :eth_daddr,	# The discovered eth_daddr (ie, the gateway)
+                  :eth_src,	# The discovered eth_src in binary form.
+                  :eth_dst,	# The discovered eth_dst (gateway) in binary form.
+                  :ip_saddr,	# The discovered ip_saddr
+                  :ip_src,	# The discovered ip_src in binary form.
+                  :iface,	# The declared interface.
+                  :pcapfile	# A declared default file to write to.
 
     def initialize(args={})
       if Process.euid.zero?

@@ -1,13 +1,4 @@
 # -*- coding: binary -*-
-require 'packetfu/protos/eth/header'
-require 'packetfu/protos/eth/mixin'
-
-require 'packetfu/protos/tcp/header'
-require 'packetfu/protos/tcp/mixin'
-
-require 'packetfu/protos/ip/header'
-require 'packetfu/protos/ip/mixin'
-
 module PacketFu
   # TCPPacket is used to construct TCP packets. They contain an EthHeader, an IPHeader, and a TCPHeader.
   #
@@ -47,8 +38,8 @@ module PacketFu
 
     def self.can_parse?(str)
       return false unless str.size >= 54
-      return false unless EthPacket.can_parse? str
-      return false unless IPPacket.can_parse? str
+      return false unless PacketFu::EthPacket.can_parse? str
+      return false unless PacketFu::IPPacket.can_parse? str
       return false unless str[23,1] == "\x06"
       return true
     end
@@ -67,9 +58,9 @@ module PacketFu
     end
 
     def initialize(args={})
-      @eth_header = 	(args[:eth] || EthHeader.new)
-      @ip_header 	= 	(args[:ip]	|| IPHeader.new)
-      @tcp_header = 	(args[:tcp] || TCPHeader.new)
+      @eth_header = 	(args[:eth] || PacketFu::EthHeader.new)
+      @ip_header 	= 	(args[:ip]	|| PacketFu::IPHeader.new)
+      @tcp_header = 	(args[:tcp] || PacketFu::TCPHeader.new)
       @tcp_header.flavor = args[:flavor].to_s.downcase
 
       @ip_header.body = @tcp_header

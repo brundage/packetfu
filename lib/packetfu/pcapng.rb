@@ -6,6 +6,14 @@ module PacketFu
   # See http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/pcapng/pcapng/master/draft-tuexen-opsawg-pcapng.xml&modeAsFormat=html/ascii&type=ascii#format_idb
   module PcapNG
 
+    autoload :Block, 'packetfu/pcapng/block'
+    autoload :File, 'packetfu/pcapng/file'
+    autoload :EPB, 'packetfu/pcapng/epb'
+    autoload :IDB, 'packetfu/pcapng/idb'
+    autoload :SHB, 'packetfu/pcapng/shb'
+    autoload :SPB, 'packetfu/pcapng/spb'
+    autoload :UnknownBlock, 'packetfu/pcapng/unknown_block'
+
     # Section Header Block type number
     SHB_TYPE = StructFu::Int32.new(0x0A0D0D0A, :little)
     # Interface Description Block type number
@@ -28,10 +36,3 @@ module PacketFu
 end
 
 
-require_relative 'pcapng/block.rb'
-require_relative 'pcapng/unknown_block.rb'
-require_relative 'pcapng/shb.rb'
-require_relative 'pcapng/idb.rb'
-require_relative 'pcapng/epb.rb'
-require_relative 'pcapng/spb.rb'
-require_relative 'pcapng/file.rb'

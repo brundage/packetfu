@@ -1,4 +1,5 @@
 # -*- coding: binary -*-
+require 'pcaprub'
 module PacketFu
 
   # The Capture class is used to construct PcapRub objects in order to collect
@@ -32,7 +33,7 @@ module PacketFu
     def initialize(args={})
       @array = [] # Where the packet array goes.
       @stream = [] # Where the stream goes.
-      @iface = (args[:iface] || ENV['IFACE'] || Pcap.lookupdev || "lo").to_s
+      @iface = (args[:iface] || ENV['IFACE'] || ::PCAPRUB::Pcap.lookupdev || "lo").to_s
       @snaplen = args[:snaplen] || 0xffff
       @promisc = args[:promisc] || false # Sensible for some Intel wifi cards
       @timeout = args[:timeout] || 1
@@ -60,7 +61,7 @@ module PacketFu
         start = args[:start] || true
         if start
           begin
-            @stream = Pcap.open_live(@iface,@snaplen,@promisc,@timeout)
+            @stream = ::PCAPRUB::Pcap.open_live(@iface,@snaplen,@promisc,@timeout)
           rescue RuntimeError
             $stderr.print "Are you sure you're root? Error: "
             raise
@@ -88,10 +89,10 @@ module PacketFu
     #   :stream
     #     If true, the @stream is cleared.
     def clear(args={})
-      array = args[:array] || true
-      stream = args[:stream] || true
-      @array = [] if array
-      @stream = [] if stream
+      clear_array = args[:array] || true
+      clear_stream = args[:stream] || true
+      @array = [] if clear_array
+      @stream = [] if clear_stream
     end
 
     # bpf() sets a bpf filter on a capture session. Valid arugments are:

@@ -1,12 +1,4 @@
 # -*- coding: binary -*-
-require 'packetfu/protos/tcp/reserved'
-require 'packetfu/protos/tcp/hlen'
-require 'packetfu/protos/tcp/ecn'
-require 'packetfu/protos/tcp/flags'
-require 'packetfu/protos/tcp/option'
-require 'packetfu/protos/tcp/options'
-
-
 module PacketFu
   # TCPHeader is a complete TCP struct, used in TCPPacket. Most IP traffic is TCP-based, by
   # volume.

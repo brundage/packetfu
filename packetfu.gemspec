@@ -16,14 +16,16 @@ Gem::Specification.new do |s|
   s.files       = `git ls-files`.split($/)
   s.license     = 'BSD'
   s.required_ruby_version = '>= 2.1.0'
-  s.add_dependency('pcaprub', '~> 0.12')
+
+  s.add_runtime_dependency('pcaprub', '~> 0.12')
+
   s.add_development_dependency('rake', '~> 10.3')
   s.add_development_dependency('rspec', '~> 3.0')
   s.add_development_dependency('rspec-its', '~> 1.2')
   s.add_development_dependency('sdoc', '~> 0.4.1')
   s.add_development_dependency('pry')
   s.add_development_dependency('coveralls')
-
+  s.add_development_dependency('guard-rspec')
 
   s.extra_rdoc_files  = %w[.document README.md]
   s.test_files        = (s.files & (Dir['spec/**/*_spec.rb'] + Dir['test/test_*.rb']) )

@@ -1,6 +1,4 @@
 # -*- coding: binary -*-
-require 'packetfu/protos/tcp/option'
-
 module PacketFu
 
   class TcpOptions < Array

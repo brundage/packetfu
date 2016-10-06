@@ -1,3 +1,7 @@
+require 'packetfu'
+require 'support/fake_packets'
+
+
 require 'coveralls'
 Coveralls.wear!
 
@@ -12,5 +16,4 @@ if RSpec::Core::Version::STRING[0] == '3'
   end
 end
 
-require 'packetfu/common'
-
+PCAPS_LOCATION = File.join(File.dirname(__FILE__), 'pcaps')

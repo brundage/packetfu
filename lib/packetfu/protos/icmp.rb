@@ -1,13 +1,4 @@
 # -*- coding: binary -*-
-require 'packetfu/protos/eth/header'
-require 'packetfu/protos/eth/mixin'
-
-require 'packetfu/protos/ip/header'
-require 'packetfu/protos/ip/mixin'
-
-require 'packetfu/protos/icmp/header'
-require 'packetfu/protos/icmp/mixin'
-
 module PacketFu
   # ICMPPacket is used to construct ICMP Packets. They contain an EthHeader, an IPHeader, and a ICMPHeader.
   #

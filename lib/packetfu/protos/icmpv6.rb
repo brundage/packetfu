@@ -1,13 +1,4 @@
 # coding: binary
-require 'packetfu/protos/eth/header'
-require 'packetfu/protos/eth/mixin'
-
-require 'packetfu/protos/ipv6/header'
-require 'packetfu/protos/ipv6/mixin'
-
-require 'packetfu/protos/icmpv6/header'
-require 'packetfu/protos/icmpv6/mixin'
-
 module PacketFu
 
   # ICMPv6Packet is used to construct ICMPv6 Packets. They contain an EthHeader,

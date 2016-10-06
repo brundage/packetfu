@@ -81,11 +81,11 @@ module PacketFu
 
     # Converts a packet to libpcap format. Bit of a hack?
     def to_pcap(args={})
-      p = PcapPacket.new(:endian => args[:endian],
-                        :timestamp => Timestamp.new.to_s,
-                        :incl_len => self.to_s.size,
-                        :orig_len => self.to_s.size,
-                        :data => self)
+      PcapPacket.new(:endian => args[:endian],
+                    :timestamp => Timestamp.new.to_s,
+                    :incl_len => self.to_s.size,
+                    :orig_len => self.to_s.size,
+                    :data => self)
     end
 
     # Put the entire packet into a libpcap file. XXX: this is a
@@ -481,7 +481,7 @@ module PacketFu
           case k
           when :eth_daddr; @eth_header.eth_daddr=v if @eth_header
           when :eth_saddr; @eth_header.eth_saddr=v if @eth_header
-          when :ip_saddr; @ip_header.ip_saddr=v		 if @ip_header
+          when :ip_saddr; @ip_header.ip_saddr=v    if @ip_header
           when :iface; @iface = v
           end
         end
@@ -537,5 +537,3 @@ module PacketFu
 
   end # class Packet
 end
-
-# vim: nowrap sw=2 sts=0 ts=2 ff=unix ft=ruby

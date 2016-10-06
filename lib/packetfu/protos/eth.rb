@@ -1,7 +1,4 @@
 # -*- coding: binary -*-
-require 'packetfu/protos/eth/header'
-require 'packetfu/protos/eth/mixin'
-
 module PacketFu
   # EthPacket is used to construct Ethernet packets. They contain an
   # Ethernet header, and that's about it.

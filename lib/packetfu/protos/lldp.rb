@@ -1,10 +1,4 @@
 # -*- coding: binary -*-
-require 'packetfu/protos/eth/header'
-require 'packetfu/protos/eth/mixin'
-
-require 'packetfu/protos/lldp/header'
-require 'packetfu/protos/lldp/mixin'
-
 module PacketFu
 
   class LLDPPacket < Packet

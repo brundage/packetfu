@@ -1,10 +1,4 @@
 # -*- coding: binary -*-
-require 'packetfu/common'
-require 'packetfu/protos/eth/header'
-require 'packetfu/protos/eth/mixin'
-require 'packetfu/protos/arp/header'
-require 'packetfu/protos/arp/mixin'
-
 module PacketFu
 
   # ARPPacket is used to construct ARP packets. They contain an EthHeader and an ARPHeader.
@@ -32,8 +26,8 @@ module PacketFu
   #  :config
   #   A hash of return address details, often the output of Utils.whoami?
   class ARPPacket < Packet
-    include ::PacketFu::EthHeaderMixin
-    include ::PacketFu::ARPHeaderMixin
+    include PacketFu::EthHeaderMixin
+    include PacketFu::ARPHeaderMixin
 
     attr_accessor :eth_header, :arp_header
 

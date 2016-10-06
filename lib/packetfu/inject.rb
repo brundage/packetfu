@@ -40,7 +40,7 @@ module PacketFu
       interval = args[:int] || args[:sleep]
       show_live = args[:show_live] || args[:live] || @show_live
 
-      @stream = Pcap.open_live(@iface,@snaplen,@promisc,@timeout)
+      @stream = ::RUBPCAP::Pcap.open_live(@iface,@snaplen,@promisc,@timeout)
       pkt_count = 0
       pkt_array.each do |pkt|
         @stream.inject(pkt)

@@ -1,16 +1,4 @@
 # -*- coding: binary -*-
-require 'packetfu/protos/eth/header'
-require 'packetfu/protos/eth/mixin'
-
-require 'packetfu/protos/ip/header'
-require 'packetfu/protos/ip/mixin'
-
-require 'packetfu/protos/ipv6/header'
-require 'packetfu/protos/ipv6/mixin'
-
-require 'packetfu/protos/udp/header'
-require 'packetfu/protos/udp/mixin'
-
 module PacketFu
 
   # UDPPacket is used to construct UDP Packets. They contain an EthHeader, an IPHeader, and a UDPHeader.

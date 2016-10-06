@@ -1,16 +1,4 @@
 # -*- coding: binary -*-
-require 'packetfu/protos/eth/header'
-require 'packetfu/protos/eth/mixin'
-
-require 'packetfu/protos/ip/header'
-require 'packetfu/protos/ip/mixin'
-
-require 'packetfu/protos/udp/header'
-require 'packetfu/protos/udp/mixin'
-
-require 'packetfu/protos/hsrp/header'
-require 'packetfu/protos/hsrp/mixin'
-
 module PacketFu
   # HSRPPacket is used to construct HSRP Packets. They contain an EthHeader, an IPHeader, and a UDPHeader.
   #

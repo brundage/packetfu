@@ -1,10 +1,4 @@
 # -*- coding: binary -*-
-require 'packetfu/protos/eth/header'
-require 'packetfu/protos/eth/mixin'
-
-require 'packetfu/protos/ipv6/header'
-require 'packetfu/protos/ipv6/mixin'
-
 module PacketFu
   # IPv6Packet is used to construct IPv6 Packets. They contain an EthHeader and an IPv6Header, and in
   # the distant, unknowable future, will take interesting IPv6ish payloads.
@@ -28,7 +22,7 @@ module PacketFu
     attr_accessor :eth_header, :ipv6_header
 
     def self.can_parse?(str)
-      return false unless EthPacket.can_parse? str
+      return false unless PacketFu::EthPacket.can_parse? str
       return false unless str.size >= 54
       return false unless str[12,2] == "\x86\xdd"
       true
@@ -42,8 +36,8 @@ module PacketFu
     end
 
     def initialize(args={})
-      @eth_header = (args[:eth] || EthHeader.new)
-      @ipv6_header = (args[:ipv6]	|| IPv6Header.new)
+      @eth_header = (args[:eth] || PacketFu::EthHeader.new)
+      @ipv6_header = (args[:ipv6]	|| PacketFu::IPv6Header.new)
       @eth_header.eth_proto = 0x86dd
       @eth_header.body=@ipv6_header
       @headers = [@eth_header, @ipv6_header]

@@ -1,6 +1,3 @@
-require 'packetfu/protos/ipv6/header'
-require 'packetfu/protos/ipv6/mixin'
-
 module PacketFu
 
   # ICMPv6Header is a complete ICMPv6 struct, used in ICMPv6Packet.

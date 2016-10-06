@@ -1,9 +1,4 @@
 # -*- coding: binary -*-
-require 'packetfu/protos/eth/header'
-require 'packetfu/protos/eth/mixin'
-require 'packetfu/protos/ip/header'
-require 'packetfu/protos/ip/mixin'
-
 module PacketFu
 
   # IPPacket is used to construct IP packets. They contain an EthHeader, an IPHeader, and usually
